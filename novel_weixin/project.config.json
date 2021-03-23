@@ -15,9 +15,9 @@
 		"scopeDataCheck": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.15.0",
+	"libVersion": "2.14.4",
 	"appid": "wx0206f1fdef78e3e6",
-	"projectname": "test",
+	"projectname": "novel_weixin",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

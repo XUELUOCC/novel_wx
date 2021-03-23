@@ -1,0 +1,25 @@
+<view>
+    <view class="search">
+        <view class="searchContent">
+            <image mode="heightFix" src="../../image/search.png"></image>
+            <input type="text" placeholder="请输入"></input>
+        </view>
+    </view>
+    <view class="swiperTop">
+        <swiper autoplay interval="1500" circular indicator-dots indicator-color="#fff" indicator-active-color="#333">
+            <swiper-item style="text-align:center">
+                <image mode="widthFix" src="../../image/item1.jpeg"></image>
+            </swiper-item>
+            <swiper-item style="text-align:center">
+                <image mode="widthFix" src="../../image/item2.jpeg"></image>
+            </swiper-item>
+            <swiper-item style="text-align:center">
+                <image mode="widthFix" src="../../image/item3.jpeg"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+    <!--小说内容-->
+    <view class="bookContent">
+
+    </view>
+</view>

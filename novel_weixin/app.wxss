@@ -8,6 +8,3 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
-.containerHome{
-  border:1rpx solid #333;
-}

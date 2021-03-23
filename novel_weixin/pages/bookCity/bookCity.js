@@ -1,4 +1,4 @@
-// pages/home/home.js
+// pages/bookCity/bookCity.js
 Page({
 
   /**
@@ -19,32 +19,18 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    //获得dialog组件
-    this.dialog = this.selectComponent("#dialog");
-    console.log(this.dialog)
-  },
 
-  showDialog() {
-    console.log('hhhhh')
-    this.dialog.showDialog();
-  },
-
-  //取消事件
-  _cancelEvent() {
-    console.log('你点击了取消');
-    this.dialog.hideDialog();
-  },
-  //确认事件
-  _confirmEvent() {
-    console.log('你点击了确定');
-    this.dialog.hideDialog();
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 1  //数字是当前页面在tabbar的索引,如我的查询页索引是2，因此这边为2，同理首页就为0，审批页面为1
+      })
+    }
   },
 
   /**

@@ -1,4 +1,4 @@
-// pages/mine/mine.js
+// pages/home/home.js
 Page({
 
   /**
@@ -12,7 +12,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // //调用应用实例的方法获取全局数据
+    // let app=getApp();
+    // //注册组件
+    // new app.tabBar;
   },
 
   /**
@@ -26,7 +29,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0  //数字是当前页面在tabbar的索引,如我的查询页索引是2，因此这边为2，同理首页就为0，审批页面为1
+      })
+    }
   },
 
   /**
