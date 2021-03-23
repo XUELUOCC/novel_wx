@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<script>
+    window.onload=function(){
+        let j=10;
+    };
+    function test2(){
+        console.log('2222222')
+    }
+    function test3(){
+        console.log('3333333')
+    }
+    function test(){
+        return promise=new Promise((resolve,reject)=>{  
+            console.log('aaaaa')//第一步
+            let i=0;
+            arr=
+                {
+                    id:'1',
+                    name:'qqqq',
+                    ids:'2',
+                    name1:'wwwww'
+                }
+            setInterval(()=>{
+                i++;
+                console.log(i)
+                if(i==10){
+                    console.log('dddd')  //第四步
+                 resolve(arr)  
+            }
+            },1000)
+            console.log('1111111') //第二步
+           
+        })
+    }
+    test().then((res)=>{
+        console.log(res) //第五步
+        if(res.ids=='2'){
+            return test2()
+        }
+    }).then((res)=>{
+        console.log(res)
+    })
+    console.log('sssss') //第三步
+    
+</script>
+<body>
+<!--
+    ------可通过微信开发者工具书写json配置文件，通过vscode书写标签代码
+微信小程序官方文档：https://developers.weixin.qq.com/miniprogram/dev/framework/
+小程序自带的框架组件：
+wxml的标签
+--1.容器类
+	--view
+	--scroll-view
+	--swiper
+	...
+--2.form表单类
+	--form
+	--input
+	--button
+	--picker
+	--contact-button
+--3.媒体类
+	--audio
+	--video
+	--image
+	--canvas
+	--map
+--4.其他
+	--icon  图标标签
+		<icon type="success" size='60' >
+	--text  相当于span
+		<text></text>
+	--progress  进度条
+	--navigator  导航
+		--相当于a标签
+--5.
+	<text>  ------<span></span> <h1></h1><h2></h2> <p></p>-------<text>只能嵌套<text>标签，且只有<text>中有属性，文字可以长按文字可以复制
+	<view> ------<div>
+		--属性
+			hover-class="样式名"（ 点击标签时会出现hover效果,鼠标放开样式效果消失）
+				--<view hover-class="active"></view>
+			id
+			class
+			style
+			data-
+			hidden (标签消失隐藏效果),值为boolean
+				--<view hidden="true"></view>
+	<navigator url="#"></navigator >------<a href="#"></a>
+	<input placeholder='请输入' />--------<input type="text">
+	<checkbox />------<input type="checkbox" name="vehicle" value="Car" checked="checked" />
+	<radio />-----------<input type="radio">
+	<view bindtap="changeImage"></view>---------<input type="file">
+	<block>-----相当于占位符的作用，页面渲染后，将会移除此标签
+1.项目结构
+	----1. pages---首页
+	----2. app.js---小程序的入口文件，全局文件
+	----3. app.json---对小程序进行全局的配置（标题名称，字体样式等）
+	----4. app.wxss---全局的样式文件
+	----5. project.config.json---有关小程序的信息(appid等信息)
+	----6.sitemap.json---有关小程序是否可以被微信搜索到，发布时使用
+2.app.json(全局配置)
+	----pages-----书写首页的路径
+		----默认显示首页路径-----在pages数组中将其路径写在最上面
+	----window-----全局默认窗口表现（字体样式，最上方导航栏背景颜色，字体颜色等）
+		-----navigationBarTextStyle（导航栏字体颜色）-----颜色只有 white,black,其他的颜色会报错
+					----enablePullDownRefresh-----是否开启下拉刷新功能
+					----backgroundTextStyle-----下拉刷新的刷新原点的字体颜色  ----dark（默认的三个刷新小圆点出现）----light(高亮不显示)
+					----backgroundColor-----下拉刷新的时候的刷新区域的背景颜色
+	----tabbar-----最下方导航栏
+		----list----导航栏的索引路径数组
+			----list下的
+			----pagePath----导航路径
+			----text----每个导航的名称
+			----iconPath----未被选中的图标
+			----selectedIconPath----导航选中时的图标
+		----color----未选中时的导航文字颜色（只支持16精=进制）
+		----selectedColor----选中时的导航文字颜色
+		----“tabBar”:{
+				"custom":true,
+				"color": "#8a8a8a",
+				"selectedColor": "#f40",//选中的字体颜色
+				"backgroundColor": "#ffffff",//背景色
+				"borderStyle": "black",//边界线的颜色
+				"position":"top",//位置，是在上边。还是选择在下边，如果选择top，就不会显示图标
+				"list": [//组件的清单
+							{
+								"pagePath": "page/component/index",//页面路径
+								"text": "组件",//组件上显示的文字
+								"iconPath": "img/compont_un.png",//默认图标
+								"selectedIconPath": "img/compont_on.png"//选中后的图标
+								},
+								{
+								"pagePath": "page/API/index",
+								"text": "API",
+								"iconPath": "img/API_un.png",
+								"selectedIconPath": "img/API_on.png"
+								},
+						]
+			}
+3.单个页面中的json配置
+	----需要什么可以复制粘贴app.json中的window全局属性
+		-----eg:   demo1.json
+			{"navigationBarBackgroundColor": "#f60"}
+4. sitemap
+	-----用于是否被微信索引到
+5.模板语法
+	-----微信小程序中没有v-model的写法，获取表单中的value值
+		----1.先通过biandinput（键盘输入时触发）-----拿到此时输入框新输入的值e.detail.value
+			----- <input  placeholder="请输入真实姓名" class='regCon-txt' placeholder-class='{{place}}' value='{{name}}' bindinput='formName' />
+		----2.在bindinput事件中通过this.setData({})改变js中的值value，将新输入的值赋值给value
+			----- formName(e){
+			console.log(e.detail.value)
+			this.setData({
+						 name:e.detail.value
+				})
+				 }
+	-----数据绑定(vue写法类似,但不是双向绑定，改变数据只能通过this.setData({xxx:zzzz})来实现双向绑定，data数据变，绑定数据变)
+		-----数据绑定{{ }}
+		-----只要在data中定义的，页面去调用，必须加{{...}},不管是否是属性绑定还是渲染,属性前并不用：，按照html的写法书写，只是渲染时必须加{{}}
+		-----数据定义在js文件
+			-----pages({...})
+			-----data:{...}
+		-----标签中的属性绑定
+			-----在vue中属性绑定，需要用到v-bind   eg:    :data-index="num"
+			-----<view data-num="{{num}}"></view>
+			-----属性双向绑定时,字符串和花括号之间一定不能产生空格，否则将导致识别失败
+			-----<checkbox check=" {{flag}}"/>-----会导致识别失败
+	-----微信小程序中的指令，绑定属性使用
+		----wx:xxxx="{{}}"
+			--例如----wx:for="{{arr}}"
+	-----列表渲染（for循环）
+		-----定义数组/对象（类似于vue,但并不相同），对象和数组渲染完全相同
+		-----在vue中
+			-----<option v-for="item in list" :key="item.id"></option>
+		-----在小程序中，数组循环
+			-----<view wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+				索引：{{index}}---值：{{item.name}}
+				   </view>
+				-----其中的wx:key的值，只支持两种，wx:key="id"(一般是用于对象数组这种特别的数组)，wx:key="*this"(一般适用于普通数组[1,2,3,4,5]等)
+			-----对象循环渲染时，一般将item,index改成value,key
+				-----<view wx:for="{{person}}" wx:for-item="value" wx:for-index="key" wx:key="name">
+					索引：{{index}}---值：{{item.name}}
+							   </view>
+			-----wx:for-item="num"
+					--改变默认的项item的名称
+						--将item重命名num
+			-----wx:for-index='tipIndex'
+					--改变默认的索引index的名称
+						--将index重命名tipIndex
+			-----wx:key="{{index}}"
+					--使用wx:for-item等需要使用key，一般从性能考虑使用{{}}
+	------条件渲染wx:if/hideen
+		-----wx:if="{{true/false}}"------会直接将标签从页面中移除，当切换不频繁的时候，推荐使用
+			----true---显示
+			----false---隐藏
+			----<view wx:if="true/false"></view>
+		-----wx:if="{{true/false}}"
+		-----wx:else------与wx:if相反
+			----<view wx:else></view>
+		-----hidden---------会通过样式的方式，display:none/block,显示隐藏，当页面切换频繁的时候，推荐使用
+			----<view hidden></view>
+			----<view hidden="{{true}}">---不显示，隐藏
+			----<view hidden="{{false}}">---显示，不隐藏
+	-----事件绑定
+		------自定义事件时，不存在--bindclick,只存在--bindtap(手指触摸离开事件)
+		------在事件名称前添加bind
+			-----写法
+				--bindinput='handle'  正常事件
+				--bind:input='handle' 正常事件
+				--catchinput='handle' 正常，不冒泡
+				--capture-bind:input='handle' 捕获事件
+				--capture-catch:input='handle' 捕获不冒泡事件
+			-----bindinput绑定input事件
+				-----<input type="text" bindinput="handleInput"/>
+				或者
+				-----<input type="text" bind:input="handleInput"/>
+				或者
+				-----<input type="text" catch:input="handleInput"/>--此种写法--不冒泡
+		------改变data中的变量
+			------通过this.setData({ num:this.data.num+2 })
+		------获取data中的变量
+			-----this.data.num
+		------在小程序中，page({
+				data:{..},
+				handleInput(){...},
+				})------data和事件是同级的，并没有vue中的methods
+		-----在小程序中 ，无法在标签绑定的事件中直接传参，只能通过data-index
+			--获取：data-index
+				--通过ev事件对象ev.target.index获取data-index
+6.wxss样式
+	------尺寸单位rpx
+		----750rpx=750px,,,,,1px=1rpx
+		----可根据屏幕宽度进行自适应，规定屏幕宽度为750rpx。如果在ipone6上是375px，共有750个物理像素
+	------在小程序中并不需要引入样式文件
+	------但可以书写全局公共样式，然后在个别文件中引入(但一般感觉没有必要，app.wxss就是书写全局样式)
+		------可通过@import引入 ，但其只支持相对路径
+			@import "../../styles/common.wxss"
+	-------小程序中并不支持通配符选择器
+7.标签
+	------view
+		-----类似于div
+		------存在点击选中时的样式属性等，在小程序文档中
+	------text
+		------类似于span
+		------selectable属性，长按文字可以复制
+		------可对文字内容进行解码，即通过&nbsp等解决内容结构
+	------image
+		------类似于img
+		------<image src="..."   />
+		------图片标签，其有默认宽高，宽度320px,高度240px
+		------支持懒加载
+			-------直接添加属性，lazy-load
+		------src-------图片的路径地址
+		------mode-------决定图片内容如何和图片标签等宽高做适配
+			-------1.   scaleToFill  默认值。不保持纵横比缩放图片，使图片的宽高完全拉伸至填满
+			-------2.   aspectFit    使图片保持宽高比，确保图片的长边显示出来，此属性，页面中的轮播图常使用
+			-------3.   aspectFill    保持纵横比缩放图片，只保证图片的短边能完全显示出来
+			-------4.   widthFix      宽度不变，高度自动变化，相当于宽度指定后，高度会自动按照宽度来变化
+			-------5.    bottom       类似于之前的background-position
+8.微信小程序中的组件swiper（轮播图组件）
+	------<swiper>-----轮播图的容器
+		<swiper-item><image src=""></image></swiper-item> -----轮播图的子项图片
+		<swiper-item><image src=""></image></swiper-item>
+			 </swiper>
+	------轮播图中swiper，image存在默认宽高
+		-----swiper默认----{width:100%;height:150px}
+		-----image默认----{width:320px;height:240px;}
+		-----swiper宽高无法实现通过内容来自动撑开
+		-----swiper高度height，需要进行手动计算
+			-----height:calc(100vw*img高/img宽)
+	------swiper的属性
+		-----autoplay----值为boolean，是否自动切换，自动轮播
+		-----interval-----值为boolean，设置轮播切换的时间，eg：interval='1000'
+		-----circular-----值为boolean，是否衔接轮播，解决第一个和最后一个的切换的衔接
+		-----indicator-dots------值为boolean，是否显示小圆点，指示轮播到哪张图片
+		-----indicator-color-----设置小圆点指示器未选中时的颜色  indicator-color="#fff"
+		-----indicator-active-color-----设置小圆点选中时的指示器颜色
+9.微信小程序中的导航组件navigator
+	-----类似于路由router
+	-----<navigator url='/pages/nav/nav'>跳转到导航页面</navigator>
+	-----属性
+		----url---- url='/pages/nav/nav'-------其中的路径是根据app.json中的pages数组判断是是否是此数组的一项
+		----target---表示是跳转到自己的小程序还是其他的小程序，默认值self（跳转到自己的小程序），miniProgram（跳转到其他的微信小程序）
+		----open-type---跳转的方式
+			-----1. navigate  默认值----保留当前页面（存在返回图标，可进行返回），可跳转到应用内的某个页面，但不能跳转到tabbar页面（不能跳到包含有tabbar页面的路径）
+			-----2. redirect   关闭当前页面（不存在返回图标，不能进行返回），可跳转到应用内的某个页面，但不能跳转到tabbar页面（不能跳到包含有tabbar页面的路径）
+			-----3. switchTab  跳转到tabbar页面，并关闭其他所有非tabbar页面
+			-----4. reLaunch  关闭所有页面，打开到应用内的某个页面
+			-----5. navigateBack  关闭当前页面，返回上一级页面或多级页面，类似于返回，，可通过getCurrentPages（）中的数组长度判断是哪个页面
+				----- let pages = getCurrentPages();
+									   console.log(pages)----返回当前页面栈（可查找保留的页面，navigate，，当没有保留比存在返回标识时，只有存在并保留的页面数据）
+			-----6. exit  退出其他的小程序（并不是自己的小程序），在target='miniProgram'时失效
+10.自定义组件
+	-----1.在Pages同级下创建components文件夹，在文件夹中创建components（开发者工具右键中的第三个创建components）
+		-----组成：wxml，wxss，.js，.json
+			----.js文件：Component({....})
+				----data:{...}------自定义组件中的变量声明
+				----methods:{....}------存放自定义组件中的事件，与Pages中的js不同，Pages中的js的事件是和data同级
+			----.json文件：对组件的json文件中进行自定义组件的声明
+	-----2.需要在父组件的json文件中进行自定义组件的声明
+		----{
+			  "usingComponents": {
+				“Tabs”:"../../components/Tabs/Tabs"
+				“定义的组件名”：“定义的组件的路径”
+			}    -------可进行引入其他组件
+	-----3.在父组件中使用组件
+		-----<Tabs></Tabs>
+	-----父子组件传递数据
+		----1.父组件传递数据给子组件
+			-----1.父组件中的子组件通过标签属性传递父组件的数据----<Tabs  aaa='123'></Tabs>
+			-----2.子组件中在properties进行接收父组件的数据
+				----properties：{ ‘aaa’:{  type:String，value:""}   }
+				----接收后，相当于是data中定义的数据----this.data.aaa
+		----2.子组件传递数据给父组件
+			-----可应用的场景：当父组件给子组件传值后，子组件中的事件改变了父组件传递的数据（此时改变的是在子组件中数据传递完成后，重新在data中定义的数据，并不是父组件中传递给子组件的数据发生率改变）
+				------单向数据流，父组件中传递给子组件的数据并没有发生改变，子组件中事件改变传递过来的数据（相当于是重新定义的data数据，不影响父组件中定义的数据（需要传递给子组件的数据））
+			-----1.在子组件触发父组件中的自定义事件时，将子组件需要给父组件传递的数据传递过去
+				-----this.triggerEvent("父组件中的自定义事件的名称"，“子组件需要传递的数据(在子组件已经定义了)”)
+				-----this.triggerEvent(“itemChange”,{{index}}）------传递参数必须是对象方式
+			-----2.在父组件中的子组件标签中添加自定义事件
+				-----bind+this.triggerEvent中的自定义事件名
+				-----<Tabs  aaa='123'binditemChange="handleItemChange"  ></Tabs>
+			-----3.在父组件中接收子组件传递过来的值
+				-----handleItemChange（e）{
+						 console.log(e.detail)
+					   }
+	-------组件中的插槽slot
+		-----slot标签其实就是一个占位符-----等到父组件调用子组件时，再传递标签过来，最终被传递过来的标签将会代替slot插槽的位置
+11.微信登录
+	----登录，需要使用微信的api--wx.login({}),微信中的获取用户的信息的api
+	 wx.login({
+	  timeout: 5000,
+	  success(){
+		console.log('登录成功')
+	  },
+	  fail(){
+		console.log('登录失败')
+	  }
+	})
+12.微信中的请求方式
+	--类似于ajax
+	--wx.request({
+		url:'',
+		dataType:'',
+		success(){
+		},
+		fail(){
+		}
+	})
+	--微信会限制通信地址
+		--可在工具中设置合法域名
+		--现在只限于https，http已经不适用
+
+13.自定义底部导航栏组件
+	---1.设置app.json中 "custom":true, 表明使用自定义组件，同时其他的微信自带的底部导航栏设置完整
+		---"tabBar": {
+				"custom":true,   //表明使用自定义组件
+				"color": "#333",
+				"selectedColor": "#FF0000",
+				"backgroundColor": "#ffffff",
+				"borderStyle": "black",
+				"position": "bottom",
+				"list": [
+					{
+					"pagePath": "pages/home/home",
+					"text": "首页",
+					"iconPath": "image/home.png",
+					"selectedIconPath": "image/homeSelected.png"
+					},
+					{
+					"pagePath": "pages/bookCity/bookCity",
+					"text": "书城",
+					"iconPath": "image/bookCity.png",
+					"selectedIconPath": "image/bookCitySelected.png"
+					},
+					{
+					"pagePath": "pages/bookCase/bookCase",
+					"text": "书架",
+					"iconPath": "image/bookCase.png",
+					"selectedIconPath": "image/bookCaseSelected.png"
+					}
+				]
+			}
+	---2.在与pages目录同级下设置custom-tab-bar文件夹（必须与pages同级，夹杂在components文件夹中是不行的，自定义组件将不会生效）
+	---3.书写自定义组件
+			wxml---通过wx:for的循环显示tab栏，同时将index,跳转路径通过data-index,data-path保存
+			js---设置一个变量，初始值为0,与index相等，点击事件后将变量与index相等，此时是选中状态，不相等就不是选中
+			tabbar导航栏中跳转的页面js:
+				---设置选中状态的初始值
+					在页面js的onShow函数中设置初始值
+					onShow: function () {
+						if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+						this.getTabBar().setData({
+							selected: 2  //数字是当前页面在tabbar的索引,如我的查询页索引是2，因此这边为2，
+											同理首页就为0，审批页面为1
+						})
+						}
+					},
+
+	---4.运行页面
+-->
+</body>
+</html>
