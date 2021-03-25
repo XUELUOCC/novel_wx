@@ -1,4 +1,6 @@
 <view>
+    <!-- <mp-loading type="circle" ></mp-loading> -->
+  
     <view class="search">
         <view class="searchContent">
             <image mode="heightFix" src="../../image/search.png"></image>
@@ -19,7 +21,42 @@
         </swiper>
     </view>
     <!--小说内容-->
-    <view class="bookContent">
+    <view class="bookContent" wx:for="{{list}}" wx:key="index" wx:for-index="index" wx:for-item="item"  >
+        <view data-index="{{index}}" bindtap="bookClick">
+            <view class="bookTop">
+                <view class="bookTopLeft">
+                    <image mode="heightFix" src="{{item.imgPath}}"></image>
+                </view>
+                <view class="bookTopRight">
+                    <text class="bookTitle">{{item.book}}</text>
+                    <view class="bookIntroduct">
+                        <text>{{item.author}}著</text>
+                        <text>{{item.describeBook.status}}·{{item.describeBook.wordNumber}}·评分{{item.describeBook.grade}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="bookCenter">
+                <view class="bookCenterContent">
+                    <text>{{item.introduct}}</text>
+                </view>
+            </view>
+        </view>
 
+        <view class="bookRecommend">
+            <text>-获得了{{item.rankList.rankName}}({{item.rankList.time}})第{{item.rankList.ranking}}名</text>
+        </view>
+        <view class="bookBottom">
+            <view class="bookBottomLeft">
+                    <image mode="heightFix" wx:if="{{bookShareFlag}}" src="../../image/share.png"></image>
+                    <image mode="heightFix" wx:else src="../../image/shareSelected.png"></image>
+            </view>
+            <view class="bookBottomCenter">
+                <image mode="heightFix" wx:if="{{bookCaseFlag}}" src="../../image/addBookCase.png"></image>
+                <image mode="heightFix" wx:else src="../../image/addBookCaseSelected.png"></image>
+            </view>
+            <view class="bookBottomRight">
+                <button >立即阅读</button>
+            </view>
+        </view>
     </view>
 </view>

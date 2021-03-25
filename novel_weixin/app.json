@@ -4,6 +4,7 @@
     "pages/bookCity/bookCity",
     "pages/bookCase/bookCase",
     "pages/index/index",
+    "pages/bookDetail/bookDetail",
     "pages/logs/logs"
   ],
   "window": {
@@ -14,31 +15,35 @@
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
-    "tabBar": {
-      "color": "#333",
-      "selectedColor": "#FF0000",
-      "backgroundColor": "#ffffff",
-      "borderStyle": "black",
-      "position": "bottom",
-      "list": [
-        {
-          "pagePath": "pages/home/home",
-          "text": "首页",
-          "iconPath": "image/home.png",
-          "selectedIconPath": "image/homeSelected.png"
-        },
-        {
-          "pagePath": "pages/bookCity/bookCity",
-          "text": "书城",
-          "iconPath": "image/bookCity.png",
-          "selectedIconPath": "image/bookCitySelected.png"
-        },
-        {
-          "pagePath": "pages/bookCase/bookCase",
-          "text": "书架",
-          "iconPath": "image/bookCase.png",
-          "selectedIconPath": "image/bookCaseSelected.png"
-        }
-      ]
-    }
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#FF0000",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "image/home.png",
+        "selectedIconPath": "image/homeSelected.png"
+      },
+      {
+        "pagePath": "pages/bookCity/bookCity",
+        "text": "书城",
+        "iconPath": "image/bookCity.png",
+        "selectedIconPath": "image/bookCitySelected.png"
+      },
+      {
+        "pagePath": "pages/bookCase/bookCase",
+        "text": "书架",
+        "iconPath": "image/bookCase.png",
+        "selectedIconPath": "image/bookCaseSelected.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "mp-loading": "miniprogram_npm/weui-miniprogram/loading/loading",
+    "mp-tabs": "miniprogram_npm/@miniprogram-component-plus/tabs"
+  }
 }

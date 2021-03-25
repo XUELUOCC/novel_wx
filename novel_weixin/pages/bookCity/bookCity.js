@@ -1,18 +1,51 @@
-// pages/bookCity/bookCity.js
+// pages/bookDetail/bookDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    tabs: [],
+    activeTab: 0,
+  },
+  onTabClick(e) {
+    const index = e.detail.index
+    this.setData({ 
+      activeTab: index 
+    })
+  },
 
+  onChange(e) {
+    const index = e.detail.index
+    this.setData({ 
+      activeTab: index 
+    })
+  },
+  handleClick(e) {
+    wx.navigateTo({
+      url: './webview',
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const tabs = [
+      {
+        title: '男生',
+        title2: '男生小说',
+        img: '',
+        desc: '',
+      },
+      {
+        title: '女生',
+        title2: '女生小说',
+        img: 'http://mmbiz.qpic.cn/sz_mmbiz_png/GEWVeJPFkSHALb0g5rCc4Jf5IqDfdwhWJ43I1IvriaV5uFr9fLAuv3uxHR7DQstbIxhNXFoQEcxGzWwzQUDBd6Q/0?wx_fmt=png',
+        desc: '微信小程序直播系列课程持续更新中，帮助大家更好地理解、应用微信小程序直播功能。',
+      },
+    ]
+    this.setData({ tabs })
   },
 
   /**
@@ -26,11 +59,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 1  //数字是当前页面在tabbar的索引,如我的查询页索引是2，因此这边为2，同理首页就为0，审批页面为1
-      })
-    }
+
   },
 
   /**
@@ -65,6 +94,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: 'tabs',
+      path: 'page/weui/example/tabs/tabs'
+    }
   }
 })

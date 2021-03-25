@@ -106,6 +106,7 @@ wxml的标签
 	----4. app.wxss---全局的样式文件
 	----5. project.config.json---有关小程序的信息(appid等信息)
 	----6.sitemap.json---有关小程序是否可以被微信搜索到，发布时使用
+	----7.微信小程序默认字体大小是40rpx;
 2.app.json(全局配置)
 	----pages-----书写首页的路径
 		----默认显示首页路径-----在pages数组中将其路径写在最上面
@@ -406,6 +407,38 @@ wxml的标签
 					},
 
 	---4.运行页面
+
+13.导入weUI组件库和导入拓展组件库
+	---导入weUI组件库
+		---1.初始化项目，下载组件库
+			cnpm init
+				---上面执行完，会在根目录下生成node_modules 文件夹，package.json，pack-lock.json。
+			cnpm i weui-miniprogram
+		---2.在微信开发者工具中
+			“详情——使用npm模块”
+			“工具——构建npm”
+			---成功后会在根目录下生成一个叫miniprogram_npm的文件夹（所有组件都是在此文件中）
+		---3.创建成功后，在app.wxss中引入weUI的样式
+			---@import './miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
+		---4.可在app.json中使用组件，或者页面的json的文件中使用组件
+			"usingComponents": {
+				"mp-loading": "miniprogram_npm/weui-miniprogram/loading/loading"	
+			}
+	---导入拓展组件库
+		---1.安装(前提是已经初始化项目之后或者是已经安装了weUI组件库，存在miniprogram_npm文件夹)
+			---注意，拓展组件都是需要单独安装(以tabs组件为例)
+				npm i @miniprogram-component-plus/tabs --save
+		---2.在微信开发者工具中
+			“详情——使用npm模块”
+			“工具——构建npm”
+			---成功后会在miniprogram_npm文件下创建@miniprogram-component-plus/tabs
+		---3.在app.json中使用组件
+			"usingComponents": {
+				"mp-loading": "miniprogram_npm/weui-miniprogram/loading/loading", （weUI组件）
+				"mp-tabs": "miniprogram_npm/@miniprogram-component-plus/tabs" （拓展组件）
+			}
+			
+					
 -->
 </body>
 </html>
