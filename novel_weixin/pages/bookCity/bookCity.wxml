@@ -9,6 +9,7 @@
     <view class="tabContent">
         <mp-tabs 
         tabs="{{tabs}}" 
+        tabClass="tabClass"
         activeTab="{{activeTab}}" 
         swiperClass="weui-tabs-swiper"
         bindtabclick="onTabClick"
@@ -18,7 +19,59 @@
         >
             <block wx:for="{{tabs}}" wx:key="title">
             <view class="tab-content" data-set="{{item}}" slot="tab-content-{{index}}" bind:tap="handleClick" >
-                <text>{{item.title2}}</text>
+                <view class="contentTitle">
+                    <text>24小时热销</text>
+                </view>
+                <view class="contentSwiper">
+                    <view class="swiperLeft">
+                        <ul>
+                            <li>
+                                <view>
+                                    <text>大奉打更人</text>
+                                    <text>卖报小郎君</text>
+                                </view>
+                            </li>
+                            <li>
+                                <view>
+                                    <text>大奉打更人</text>
+                                    <text>卖报小郎君</text>
+                                </view>
+                            </li>
+                            <li>
+                                <view>
+                                    <text>大奉打更人</text>
+                                    <text>卖报小郎君</text>
+                                </view>
+                            </li>
+                        </ul>
+                    </view>
+                    <view class="swiperRight">
+                        <swiper
+                        snap-to-edge
+               
+                        current="{{currentIndex}}"
+                        interval="1500" 
+                        previous-margin="90rpx" 
+                        next-margin="90rpx" 
+                        bindchange="bindChange"
+                       
+                       >
+                            <swiper-item class="{{index==currentIndex ? 'swiperItemActive' :''}}"  style="text-align:center" wx:for="{{swiperimg}}" wx:for-index="index" wx:key="key" wx:for-item="item">
+                                <image mode="heightFix" class="{{index==currentIndex ? 'active' :''}}" src="{{item.images}}"></image>
+                            </swiper-item>
+                            <!-- <swiper-item style="text-align:center">
+                                <image mode="heightFix" src="../../image/bookCity2.jpg"></image>
+                            </swiper-item>
+                            <swiper-item style="text-align:center">
+                                <image mode="heightFix" src="../../image/bookCity3.jpeg"></image>
+                            </swiper-item> -->
+                        </swiper>
+                    </view>
+                    <!-- <ul class="uls">
+                       <li>11</li>
+                       <li>22</li>
+                   </ul> -->
+                </view>
             </view>
             </block>
         </mp-tabs>

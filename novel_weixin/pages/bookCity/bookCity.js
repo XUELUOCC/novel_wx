@@ -7,6 +7,18 @@ Page({
   data: {
     tabs: [],
     activeTab: 0,
+    currentIndex:1,  //tabs中的swiper的index
+    swiperimg:[
+      {
+        images:"../../image/bookCity1.jpg"
+      },
+      {
+        images:"../../image/bookCity2.jpg"
+      },
+      {
+        images:"../../image/bookCity3.jpeg"
+      }
+    ]
   },
   onTabClick(e) {
     const index = e.detail.index
@@ -26,6 +38,14 @@ Page({
       url: './webview',
     })
   },
+  //
+  bindChange(e){
+    // console.log('aaaa')
+    // console.log(e.detail.current)
+    this.setData({
+      currentIndex:e.detail.current
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -41,8 +61,8 @@ Page({
       {
         title: '女生',
         title2: '女生小说',
-        img: 'http://mmbiz.qpic.cn/sz_mmbiz_png/GEWVeJPFkSHALb0g5rCc4Jf5IqDfdwhWJ43I1IvriaV5uFr9fLAuv3uxHR7DQstbIxhNXFoQEcxGzWwzQUDBd6Q/0?wx_fmt=png',
-        desc: '微信小程序直播系列课程持续更新中，帮助大家更好地理解、应用微信小程序直播功能。',
+        img: '',
+        desc: '',
       },
     ]
     this.setData({ tabs })

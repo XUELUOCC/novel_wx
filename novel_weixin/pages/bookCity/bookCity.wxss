@@ -30,17 +30,80 @@
 }
 
 /**tab栏切换 */
-.weui-tabs-bar__item{
+/* .weui-tabs-bar__item{
     margin:0 20rpx 0 20rpx;
-}
+} */
 .tab-bar-title__selected text{
     font-weight:700;
 }   
-.weui-tabs-bar__wrp {
-    border-bottom:2rpx solid #ddd;
+.weui-tabs-swiper {
+    margin-top: 20rpx;
+    /* height:auto; */
+    height: calc(100vh - 100px) !important;  /**只适应满屏都是tabs的项目 */
+    border-top:10rpx solid #f5f7fa;
+}
+swiper-item{
+    width:95%;
+    margin:0 auto;
 }
 .tabContent{
     width:100%;
     margin:20rpx auto 0;
     height:auto;
+}
+.tabClass{
+    padding:10rpx 0;
+    margin:0 10rpx 0 10rpx;
+    /* border:1rpx solid red; */
+}
+
+/**swiper内容区域 */
+.contentTitle{
+    width:95%;
+    margin:0 auto;
+    height:100rpx;
+    /* border:1rpx solid red; */
+}
+.contentSwiper{
+    width:95%;
+    margin:0 auto;
+    height:300rpx;
+    border:1rpx solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.swiperLeft{
+    width:60%;
+    height:90%;
+}
+.swiperRight{
+    width:40%;
+    height:200rpx;
+    line-height: 200rpx;
+}
+.contentSwiper swiper{
+    width:100%;
+    height: 100%;
+}
+.contentSwiper swiper-item{
+    height:100%;
+    /* width:180rpx!important; */
+}
+.swiperRight swiper swiper-item:last-child{
+    /* margin-left:-190rpx; */
+}
+.contentSwiper swiper-item image{
+    height:150rpx;
+    margin-top:25rpx;
+}
+/** 动态样式 */
+.active{
+    /* height:200rpx; */
+    transform:scale(1.5,1.5);
+    margin:0;
+}
+.swiperItemActive{
+    z-index:9999;
+    /* margin-left:-70rpx; */
 }

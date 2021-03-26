@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57a0df0a-7364-4472-b895-6eb15ca4df28" name="Default Changelist" comment="add 微信小程序-novel">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/components/dialog/dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/components/dialog/dialog.wxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/components/dialog/dialog.wxss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/components/test/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/components/test/test.wxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/components/test/test.wxss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/pages/home/home.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/pages/home/home.wxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/pages/home/home.wxss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/pages/index/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/pages/index/index.wxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/pages/mine/mine.wxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/pages/mine/mine.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/novel_weixin/pages/bookCity/bookCity.js" beforeDir="false" afterPath="$PROJECT_DIR$/novel_weixin/pages/bookCity/bookCity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/novel_weixin/pages/bookCity/bookCity.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/novel_weixin/pages/bookCity/bookCity.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/novel_weixin/pages/bookCity/bookCity.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/novel_weixin/pages/bookCity/bookCity.wxss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,10 +19,11 @@
     <session id="1354476331">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -70,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/1.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
-              <caret line="386" column="53" lean-forward="true" selection-start-line="386" selection-start-column="53" selection-end-line="386" selection-end-column="53" />
+              <caret line="387" column="53" selection-start-line="387" selection-start-column="53" selection-end-line="387" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -92,6 +80,15 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/novel_weixin/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/novel_weixin/miniprogram_npm/weui-miniprogram/package.json" />
+      <path value="$PROJECT_DIR$/novel_weixin/package.json" />
+    </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="9" />
@@ -154,6 +151,7 @@
       <updated>1616492116966</updated>
       <workItem from="1616492118374" duration="348000" />
       <workItem from="1616492697655" duration="265000" />
+      <workItem from="1616739623029" duration="17000" />
     </task>
     <task id="LOCAL-00001" summary="add 微信小程序-novel">
       <created>1616492377040</created>
@@ -173,10 +171,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="613000" />
+    <option name="totallyTimeSpent" value="630000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16443452" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -208,13 +207,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="add 微信小程序-novel" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/weixin/pages/home/home.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/weixin/pages/home/home.js" />
     <entry file="file://$PROJECT_DIR$/1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
-          <caret line="386" column="53" lean-forward="true" selection-start-line="386" selection-start-column="53" selection-end-line="386" selection-end-column="53" />
+          <caret line="387" column="53" selection-start-line="387" selection-start-column="53" selection-end-line="387" selection-end-column="53" />
         </state>
       </provider>
     </entry>
