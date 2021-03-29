@@ -8,6 +8,21 @@ Page({
     tabs: [],
     activeTab: 0,
     currentIndex:1,  //tabs中的swiper的index
+    imgIndex:1,
+    swiperList:[
+      {
+        name:'大奉打更人',
+        author:'卖报小郎君'
+      },
+      {
+        name:'万族之劫',
+        author:'老鹰吃小鸡'
+      },
+      {
+        name:'赘婿',
+        author:'愤怒的香蕉'
+      },
+    ],
     swiperimg:[
       {
         images:"../../image/bookCity1.jpg"
@@ -72,7 +87,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
@@ -114,9 +128,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    return {
-      title: 'tabs',
-      path: 'page/weui/example/tabs/tabs'
-    }
+    // return {
+    //   title: 'tabs',
+    //   path: 'page/weui/example/tabs/tabs'
+    // }
   }
 })

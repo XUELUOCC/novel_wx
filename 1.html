@@ -99,6 +99,9 @@ wxml的标签
 	<radio />-----------<input type="radio">
 	<view bindtap="changeImage"></view>---------<input type="file">
 	<block>-----相当于占位符的作用，页面渲染后，将会移除此标签
+
+--6.微信除了上述的标签组件外，不支持其他组件，例如ul、li等
+
 1.项目结构
 	----1. pages---首页
 	----2. app.js---小程序的入口文件，全局文件
@@ -408,7 +411,7 @@ wxml的标签
 
 	---4.运行页面
 
-13.导入weUI组件库和导入拓展组件库
+14.导入weUI组件库和导入拓展组件库
 	---导入weUI组件库
 		---1.初始化项目，下载组件库
 			cnpm init
@@ -438,7 +441,38 @@ wxml的标签
 				"mp-tabs": "miniprogram_npm/@miniprogram-component-plus/tabs" （拓展组件）
 			}
 			
-					
+15.在组件标签中书写js
+	----小程序中在标签中写js只能支持一些简单的逻辑运算，不支持复杂的逻辑运算
+	----解决方法：
+			--使用wxs
+				1.WXS（WeiXin Script）是小程序的一套脚本语言，结合 WXML，可以构建出页面的结构
+				2.WXS 不依赖于运行时的基础库版本，可以在所有版本的小程序中运行。
+				3.WXS 与 JavaScript 是不同的语言，有自己的语法，并不和 JavaScript 一致。
+				4.性能比js高
+				5.WXS 代码可以编写在 wxml 文件中的 <wxs> 标签内，或以 .wxs 为后缀名的文件内
+
+			--使用方法：
+				--在wxml中使用wxs标签
+					<view>
+						实例1：<text >{{util.compare(/*wxjs中的定义的data数据等*/ currentIndex)}}</text>
+						实例2：<image wx:if="{{util.compare(currentIndex)==index}}"  src="../../image/arrow.png" mode="widthFix" ></image>
+						<wxs module="util">
+							/*其中写js*/
+							var compare=function(item){
+								return item
+							}
+							module.exports.compare=compare;
+						</wxs>
+						
+						<wxs module="../src/util.wxs">
+							/*其中写js*/
+							var compare=function(item){
+								return item
+							}
+							module.exports.compare=compare;
+						</wxs>
+					</view>
+
 -->
 </body>
 </html>

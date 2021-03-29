@@ -24,53 +24,35 @@
                 </view>
                 <view class="contentSwiper">
                     <view class="swiperLeft">
-                        <ul>
-                            <li>
-                                <view>
-                                    <text>大奉打更人</text>
-                                    <text>卖报小郎君</text>
-                                </view>
-                            </li>
-                            <li>
-                                <view>
-                                    <text>大奉打更人</text>
-                                    <text>卖报小郎君</text>
-                                </view>
-                            </li>
-                            <li>
-                                <view>
-                                    <text>大奉打更人</text>
-                                    <text>卖报小郎君</text>
-                                </view>
-                            </li>
-                        </ul>
+                        <view class="swiperLeftContent" wx:for="{{swiperList}}" wx:key="key">
+                            <view class="leftContentImg">
+                                <image wx:if="{{util.compare(currentIndex)==index}}"  src="../../image/arrow.png" mode="widthFix" ></image>
+                            </view>
+                            <wxs module="util">
+                                var compare=function(item){
+                                    return item
+                                }
+                                module.exports.compare=compare
+                            </wxs>
+                            <text class="titleLi">{{index+1}}.{{item.name}}</text>
+                            <text class="authorLi">{{item.author}}</text>
+                        </view>
                     </view>
                     <view class="swiperRight">
                         <swiper
-                        snap-to-edge
-               
+                        circular
+                        autoplay
                         current="{{currentIndex}}"
                         interval="1500" 
-                        previous-margin="90rpx" 
-                        next-margin="90rpx" 
+                        previous-margin="80rpx"
+                        next-margin="80rpx"
                         bindchange="bindChange"
-                       
                        >
                             <swiper-item class="{{index==currentIndex ? 'swiperItemActive' :''}}"  style="text-align:center" wx:for="{{swiperimg}}" wx:for-index="index" wx:key="key" wx:for-item="item">
                                 <image mode="heightFix" class="{{index==currentIndex ? 'active' :''}}" src="{{item.images}}"></image>
                             </swiper-item>
-                            <!-- <swiper-item style="text-align:center">
-                                <image mode="heightFix" src="../../image/bookCity2.jpg"></image>
-                            </swiper-item>
-                            <swiper-item style="text-align:center">
-                                <image mode="heightFix" src="../../image/bookCity3.jpeg"></image>
-                            </swiper-item> -->
                         </swiper>
                     </view>
-                    <!-- <ul class="uls">
-                       <li>11</li>
-                       <li>22</li>
-                   </ul> -->
                 </view>
             </view>
             </block>
