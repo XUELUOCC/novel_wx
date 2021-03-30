@@ -26,7 +26,7 @@
                     <view class="swiperLeft">
                         <view class="swiperLeftContent" wx:for="{{swiperList}}" wx:key="key">
                             <view class="leftContentImg">
-                                <image wx:if="{{util.compare(currentIndex)==index}}"  src="../../image/arrow.png" mode="widthFix" ></image>
+                                <image hidden="{{util.compare(currentIndex)!=index}}"  src="../../image/arrow.png" mode="widthFix" ></image>
                             </view>
                             <wxs module="util">
                                 var compare=function(item){

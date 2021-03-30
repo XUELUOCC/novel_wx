@@ -1,1 +1,59 @@
-<text>书籍详情</text>
+<view class="content">
+    <view class="bgImg">
+        <image class="background" mode="widthFix" src="../../image/bookDetail/tip.png"></image>
+    </view>
+    <view class="top">
+         <!-- <view class="navbar">
+            <image mode="widthFix" src="../../image/navbarArrow.png"></image>
+        </view> -->
+        <view class="topContent">
+            <view class="topImg">
+                <image mode="heightFix" src="../../image/bookDetail/tip.png"></image>
+            </view>
+            <view class="topCenter">
+                <text class="bookName">逐鹿双姝</text>
+                <text class="author">空山吟·科幻</text>
+                <text class="bookLink">组团领取畅读卡，小程序全场免费></text>
+            </view>
+            <view class="topTips">
+                <view class="topTipLeft">
+                    <view class="tipTop">
+                        <text class="one">94</text>
+                        <text class="two">万字</text>
+                    </view>
+                    <text class="tipBottom">连载</text>
+                </view>
+                <view class="topTipRight">
+                     <view class="tipTop">
+                         <text class="one">0</text>
+                         <text class="two">分</text>
+                     </view>
+                    <text class="tipBottom">0人评论</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bottomContent">
+        <view class="topIntroduct">
+            <view class='text'>
+                张晓，原来是一个初入社会的大学生，在去面试的路上过马路时被一辆闯红灯的轿车给撞死，
+                灵魂穿越回了公元180年的幽州蓟县，成为了一个中等士族当代族长的长子，名叫张皓，字明德。
+                为了在日后的乱世中生存下去，不断地发展自己的实力。“汉失其鹿，天下共逐”。
+            </view>
+        </view>
+        <view class="catalog">
+            <view class="catalogLeft">
+                <image mode="widthFix" src="../../image/bookDetail/catalog.png"></image>
+                <text>目录</text>
+            </view>
+            <view class="catalogRight">
+                <view class="text">今天12:00更新至第321章 封帝</view>
+                <image mode="heightFix" src="../../image/bookDetail/arrowCatalog.png"></image>
+            </view>
+        </view>
+        <view class="role"></view>
+        <view class="comment"></view>
+        <view class="bookContent"></view>
+    </view>
+   
+</view>

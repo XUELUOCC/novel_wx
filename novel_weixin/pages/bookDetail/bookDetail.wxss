@@ -1,1 +1,221 @@
 /* pages/bookDetail/bookDetail.wxss */
+page{
+    height:100%;
+    /* border:1rpx solid red; */
+}
+.navbar{
+    width:100%;
+    height:200rpx;
+    /* margin:120rpx auto 0; */
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    position: fixed;
+    top:0rpx;
+    /* background-color: rgba(30, 30, 30, 0.1); */
+}
+.navbar image{
+    width:80rpx;
+    margin-left:20rpx;
+}
+.bgImg{
+    width:100%;
+    height:100%;
+    position: absolute;
+    opacity: 0.5;
+    z-index:-1;
+}
+.background{
+    /* position: absolute; */
+    /* z-index:-1; */
+    width:100%;
+    opacity: 0.3;
+}
+.content{
+    width:100%;
+    height:100%;
+    position: relative;
+}
+.top{
+    width:100%;
+    height:700rpx;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* border:1rpx solid red; */
+    background-color: rgba(30, 30, 30, 0.3);
+}
+.topContent{
+    width:80%;
+    height:90%;
+    /* border:1rpx solid red; */
+    margin-top:100rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items:center;
+}
+.topImg{
+    width:auto;
+    height:250rpx;
+    /* margin-top:30rpx; */
+    margin-bottom:15rpx;
+}
+.topImg image{
+    width:auto;
+    height:250rpx;
+}
+.topCenter{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom:25rpx;
+}
+.topCenter .bookName{
+    font-size:50rpx;
+    font-weight:700;
+}
+.topCenter .author{
+    font-size:30rpx;
+}
+.topCenter .bookLink{
+    font-size:30rpx;
+    color:#6177cd;
+}
+.topTips{
+    width:80%;
+    height:120rpx;
+    margin:0 auto;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.topTipLeft,.topTipRight{
+    width:200rpx;
+    height:100%;
+}
+.topTipLeft text,.topTipRight text{
+    text-align: center;
+}
+.topTipLeft .tipTop,.topTipRight .tipTop {
+    text-align: center;
+}
+.topTipLeft .tipBottom,.topTipRight .tipBottom{
+    width:100%;
+    height:50%;
+    display: inline-block;
+}
+.topTipLeft .tipTop{
+    width:100%;
+    height:50%;
+}
+.topTipLeft .tipTop .one{
+    font-size:40rpx;
+    font-weight:600;
+}
+.topTipRight .tipTop{
+    width:100%;
+    height:50%;
+}
+.topTipRight .tipTop .one{
+    font-size:40rpx;
+    font-weight:600;
+}
+
+/**小说下面模块，包括简介，目录，内容 等*/
+.bottomContent{
+    background-color:#fff;
+}
+
+/**小说简介 */
+.topIntroduct{
+    width:100%;
+    height:130rpx;
+    overflow: hidden;
+}
+.topIntroduct .text{
+    width:90%;
+    margin:0 auto;
+    line-height:60rpx;
+    color:#64676e;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:2;
+    display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+}
+
+/*小说目录 */
+.catalog{
+    width:100%;
+    height:120rpx;
+    padding:0 37.5rpx;
+    margin:0 auto;
+    border-top:1rpx solid #e6ebf2;
+    border-bottom:1rpx solid #e6ebf2;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.catalogLeft{
+    width:20%;
+    height:100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.catalogLeft image{
+    width:50rpx;
+}
+.catalogLeft text{
+    font-size:40rpx;
+    font-weight:600;
+}
+.catalogRight{
+    width:60%;
+    height:100%;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.catalogRight .text{
+    width:360rpx;
+    /* flex:3; */
+    /* height:100%; */
+    flex-wrap: nowrap;
+    overflow: hidden;
+    color:#898f9b;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:1;
+    display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+}
+.catalogRight image{
+    /* flex:1; */
+    height:50rpx;
+}
+
+/**小说标签 */
+.role{
+    width:100%;
+    height:300rpx;
+    border:1rpx solid red;
+}
+
+/**小说评论 */
+.comment{
+    width:100%;
+    height:450rpx;
+    border:1rpx solid red;
+}
+
+/**小说内容 */
+.bookContent{
+    width:100%;
+    height:600rpx;
+    border:1rpx solid red;
+    background-color: #f5f7fa;
+}
