@@ -100,7 +100,9 @@ wxml的标签
 	<view bindtap="changeImage"></view>---------<input type="file">
 	<block>-----相当于占位符的作用，页面渲染后，将会移除此标签
 
---6.微信除了上述的标签组件外，不支持其他组件，例如ul、li等
+--6.微信除了上述的标签组件外，
+	---不支持其他组件，例如ul、li等
+	---不支持background-image，只能通过position：fixed，page{height:100%;}定位实现背景图片的铺满
 
 1.项目结构
 	----1. pages---首页
