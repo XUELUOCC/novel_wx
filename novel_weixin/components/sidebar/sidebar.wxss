@@ -1,0 +1,66 @@
+/* components/sidebar/sidebar.wxss */
+.catalogBg{
+    width:80%;
+    height:100%;
+    background-color:#fff;
+    position:fixed;
+    top:0rpx;
+    left:-80%;
+    transition: 0.5s;
+    z-index:10;
+    overflow-y: auto;
+}
+.active{
+    left:0%;
+    transition: 0.5s;
+}
+.author{
+    width:90%;
+    height:60rpx;
+    margin-left:10%;
+    border-bottom:1rpx solid #e6ebf2;
+}
+.author text{
+    line-height:60rpx;
+}
+.list{
+    width:90%;
+    height:auto;
+    margin-left:10%;
+}
+.listLi{
+    width:100%;
+    height:130rpx;
+    /* border:1rpx solid red; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.liContent{
+    width:100%;
+    height:70%;
+}
+.top{
+    width:100%;
+    height:50%;
+    display:flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+.topLeft,.topRight{
+    height:100%;
+}
+.topRihgt{
+    margin-left:20rpx;
+}
+.bottom{
+    width:100%;
+    height:50%;
+}
+.bottomTime{
+    font-size:25rpx;
+    height:100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}

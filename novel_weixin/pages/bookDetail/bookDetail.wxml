@@ -1,34 +1,34 @@
-<view class="content">
+
+<view class="content ">
+    <view class="bgContent {{bgFlag?'bgActive':''}}" bindtap="packBg"></view>
+    <sideBar flodFlag="{{flodFlag}}"></sideBar>
     <view class="bgImg">
-        <image class="background" mode="widthFix" src="../../image/bookDetail/tip.png"></image>
+        <image class="background" mode="widthFix" src="{{bookDetailData.bookImg}}"></image>
     </view>
     <view class="top">
-         <!-- <view class="navbar">
-            <image mode="widthFix" src="../../image/navbarArrow.png"></image>
-        </view> -->
         <view class="topContent">
             <view class="topImg">
-                <image mode="heightFix" src="../../image/bookDetail/tip.png"></image>
+                <image mode="heightFix" src="{{bookDetailData.bookImg}}"></image>
             </view>
             <view class="topCenter">
-                <text class="bookName">逐鹿双姝</text>
-                <text class="author">空山吟·科幻</text>
-                <text class="bookLink">组团领取畅读卡，小程序全场免费></text>
+                <text class="bookName">{{bookDetailData.bookName}}</text>
+                <text class="author">{{bookDetailData.author}}·{{bookDetailData.bookType}}</text>
+                <text class="bookLink">{{bookDetailData.bookLink}}></text>
             </view>
             <view class="topTips">
                 <view class="topTipLeft">
                     <view class="tipTop">
-                        <text class="one">94</text>
+                        <text class="one">{{bookDetailData.bookWord}}</text>
                         <text class="two">万字</text>
                     </view>
-                    <text class="tipBottom">连载</text>
+                    <text class="tipBottom">{{bookDetailData.bookStatus}}</text>
                 </view>
                 <view class="topTipRight">
                      <view class="tipTop">
-                         <text class="one">0</text>
+                         <text class="one">{{bookDetailData.bookGrade}}</text>
                          <text class="two">分</text>
                      </view>
-                    <text class="tipBottom">0人评论</text>
+                    <text class="tipBottom">{{bookDetailData.bookGradePeople}}人评论</text>
                 </view>
             </view>
         </view>
@@ -36,24 +36,113 @@
     <view class="bottomContent">
         <view class="topIntroduct">
             <view class='text'>
-                张晓，原来是一个初入社会的大学生，在去面试的路上过马路时被一辆闯红灯的轿车给撞死，
-                灵魂穿越回了公元180年的幽州蓟县，成为了一个中等士族当代族长的长子，名叫张皓，字明德。
-                为了在日后的乱世中生存下去，不断地发展自己的实力。“汉失其鹿，天下共逐”。
+               {{bookDetailData.bookIntroduct}}
             </view>
         </view>
-        <view class="catalog">
+        <view class="catalog" bindtap="foldCatalog">
             <view class="catalogLeft">
                 <image mode="widthFix" src="../../image/bookDetail/catalog.png"></image>
                 <text>目录</text>
             </view>
             <view class="catalogRight">
-                <view class="text">今天12:00更新至第321章 封帝</view>
+                <view class="text">{{bookDetailData.bookUpdateTime}}更新至{{bookDetailData.bookUpdateChapter}}</view>
                 <image mode="heightFix" src="../../image/bookDetail/arrowCatalog.png"></image>
             </view>
         </view>
-        <view class="role"></view>
-        <view class="comment"></view>
-        <view class="bookContent"></view>
+        <view class="role">
+            <view class="roleName">角色</view>
+            <view class="roleList">
+                <view class="tip" wx:for="{{bookDetailData.bookRole}}" wx:key="key">
+                    <view class="tiptop">{{item.roleName}}</view>
+                    <view class="tipbottom">{{item.roleType}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="comment">
+            <view class="commentTitle">精彩评论</view>
+            <view class="commentList">
+                <view class="commentListLi" wx:for="{{commentDetail}}" wx:key="key">
+                    <view class="commentTop">
+                        <view class="commentUser">
+                            <view class="commonImg">
+                                <image mode="widthFix" src='{{item.userImg}}'></image>
+                            </view>
+                            <text>{{item.user}}</text>
+                        </view>
+                    </view>
+                    <view class="commentBottom">
+                         {{item.content}}
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="bookContent">
+            <view class="contentTitle">
+                {{bookContent.title}} {{bookContent.chapterName}}
+            </view>
+            <text class="chapterContent">
+                    大雪呼啸，冷风如刀。
+
+                隆冬之日，万物沉寂，天地间一片萧瑟，一切生机复归于大地。
+
+                天连山，属太绗山脉支脉，普普通通，毫不起眼。
+
+                天连山上有一道观，道观年久失修，墙壁斑驳，大门之上红漆脱落，一看便知不是什么香火旺盛之地。
+
+                附近时不时的会有人前来，燃两炷香，求一个心安。
+
+                但也仅此而已了，这年头，早已没有真正的信仰了。
+
+                啪嗒！
+
+                安奇生起身关上被风吹开的窗户。
+
+                道观年久失修，窗户关上也还有风自缝隙之中钻进来。
+
+                让他不禁紧了紧身上厚厚的羽绒服。
+
+                他的身材修长，体魄却很单薄，清秀的面上也带着一抹不健康的白。
+
+                “这道观，该修一修了。”
+
+                安奇生对塌上盘膝而坐的一个老道士说着。
+
+                老道士穿着洗的发白的道袍，里面穿着厚厚的棉衣，面前放着一盆烧得通红的炭火。
+
+                老道士俗家姓李，道号清远，是这道观的观主，今年七十有六，一手医术在大玄也小有名气。
+
+                “往年也没有这般大的风雪。”
+
+                老道士面容红润，不知道是被风吹的，还是被炭烟熏得。
+
+                但看其微微湿润的眼角来看，似乎是后者。
+
+                “清远道长传我蛰龙睡丹功，我帮你修修道观，那也是应该的。”
+
+                安奇生端起茶杯，轻轻一吹，雾气遮住了眼帘：
+
+                “毕竟，我或许也活不了多久了。”
+
+                “蛰龙睡丹功不过是辅之武术修行的一个小小窍门而已，小友不必客气。”
+
+                老道士擦了擦眼角被烟熏出来的湿润，心中却有些惋惜。
+
+                这孩子啥都好，就是命不长。
+
+                “相传上古之时，曾有人寿过八百而如常人.......我欲要活到二十岁却不可得。”
+
+                安奇生饮一口清茶，只觉苦入心中：
+
+                “我也算通读道藏，佛经也有涉猎，各种道家实修，佛门观想法也学了不少，还是不能够挽回自己的性命流逝......
+
+                世间难道果真没有真正的修行之法吗？”
+
+                安奇生不禁有些迷茫，他自小便与常人不同，时而能够梦到与一颗与玄星似是而非的星球之上，另一段奇妙的人生。
+            </text>
+            <view class="bookContentBottom">
+                <button type="default"  plain="true">阅读下一章</button>
+            </view>
+        </view>
     </view>
    
 </view>

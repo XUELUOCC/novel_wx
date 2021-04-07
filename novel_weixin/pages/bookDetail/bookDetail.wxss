@@ -6,7 +6,6 @@ page{
 .navbar{
     width:100%;
     height:200rpx;
-    /* margin:120rpx auto 0; */
     display:flex;
     justify-content: flex-start;
     align-items: flex-end;
@@ -23,7 +22,7 @@ page{
     height:100%;
     position: absolute;
     opacity: 0.5;
-    z-index:-1;
+    z-index:-5;
 }
 .background{
     /* position: absolute; */
@@ -44,7 +43,7 @@ page{
     flex-direction: column;
     align-items: center;
     /* border:1rpx solid red; */
-    background-color: rgba(30, 30, 30, 0.3);
+    background-color: rgba(30, 30, 30, 0.1);
 }
 .topContent{
     width:80%;
@@ -174,16 +173,15 @@ page{
     font-weight:600;
 }
 .catalogRight{
-    width:60%;
+    width:78%;
     height:100%;
     display:flex;
     justify-content: flex-start;
     align-items: center;
 }
 .catalogRight .text{
-    width:360rpx;
-    /* flex:3; */
-    /* height:100%; */
+    width:500rpx;
+    font-size:30rpx;
     flex-wrap: nowrap;
     overflow: hidden;
     color:#898f9b;
@@ -194,28 +192,164 @@ page{
     text-overflow: ellipsis;
 }
 .catalogRight image{
-    /* flex:1; */
     height:50rpx;
 }
 
 /**小说标签 */
 .role{
-    width:100%;
+    width:90%;
     height:300rpx;
-    border:1rpx solid red;
+    margin:0 auto;
+}
+.roleName{
+    width:100%;
+    height:40%;
+    font-size:40rpx;
+    font-weight: 600;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom:10rpx;
+}
+.roleList{
+    width:100%;
+    height:50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: auto;
+}
+.roleList .tip{
+    width:200rpx;
+    height:120rpx;
+    flex-shrink:0;/**flex-shrink 属性指定了 flex 元素的收缩规则。flex 元素仅在默认宽度之和
+                    大于容器的时候才会发生收缩，其收缩的大小是依据 flex-shrink 的值。0代表不会收缩 */
+    margin-right:15rpx;
+    background-color:#373636;
+    border-radius: 10rpx;
+}
+.roleList .tip .tiptop,.roleList .tip .tipbottom{
+    width:90%;
+    height:50%;
+    line-height:60rpx;
+    color:#fff;
+    margin:0 auto;
+}
+.roleList .tip .tiptop{
+    font-size: 35rpx;
+    color:#fff;
+    font-weight:600;
+}
+.roleList .tip .tipbottom{
+    font-size:25rpx;
 }
 
 /**小说评论 */
 .comment{
+    width:90%;
+    /* height:450rpx; */
+    margin:0 auto;
+}
+.commentTitle{
     width:100%;
-    height:450rpx;
-    border:1rpx solid red;
+    height:100rpx;
+    font-size:40rpx;
+    font-weight:600;
+    line-height:100rpx;
+}
+.commentList{
+    width:100%;
+    /*需要动态设置*/
+    /* height:300rpx;  */
+    /* overflow: auto; */
+}
+.commentListLi{
+    width:100%;
+    padding-bottom:10rpx;
+    border-bottom:1rpx solid #e6ebf2;
+}
+.commentTop{
+    width:100%;
+}
+.commentBottom{
+    width:90%;
+}
+.commentTop{
+    height:100rpx;
+}
+.commentUser{
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.commonImg{
+    width:100rpx;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.commentUser .commonImg image{
+    width:60rpx;
+}
+.commentUser text{
+    font-size:30rpx;
+    font-weight:600;
+}
+.commentBottom{
+    margin-left:100rpx;
 }
 
 /**小说内容 */
 .bookContent{
     width:100%;
-    height:600rpx;
-    border:1rpx solid red;
+    height:auto;
+    /* border:1rpx solid red; */
     background-color: #f5f7fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+.contentTitle{
+    width:95%;
+    height:100rpx;
+    margin:0 auto;
+    line-height:100rpx;
+    font-size:50rpx;
+    font-weight: 700;
+}
+.chapterContent{
+    width:95%;
+    height:auto;
+    margin-bottom:20rpx;
+    /* font-size:45rpx; */
+}
+.bookContentBottom{
+    width:95%;
+    height:200rpx;
+    margin:0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top:1rpx solid #e6ebf2;
+}
+.bookContentBottom button{
+    border:1rpx solid #409eff!important;
+    border-radius: 50rpx;
+    color:#409eff!important;
+}
+
+/**目录的侧边栏 形成的遮罩*/
+.bgActive{
+    background-color:#2e2e2e!important;
+    z-index:1!important;
+    opacity: 0.6;
+}
+.bgContent{
+    width:100%;
+    height:100%;
+    position: fixed;
+    z-index:-1;
+}
+

@@ -1,5 +1,8 @@
 {
-  "usingComponents": {},
-  "navigationBarBackgroundColor": "#ddd",
-  "navigationBarTitleText": ""
+  "usingComponents": {
+    "sideBar":"../../components/sidebar/sidebar"
+  },
+  "navigationBarBackgroundColor": "#bababa",
+  "navigationBarTitleText": "",
+  "navigationBarTextStyle": "white"
 }

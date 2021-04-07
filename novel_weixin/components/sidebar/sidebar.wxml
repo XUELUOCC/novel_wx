@@ -1,0 +1,19 @@
+<!--components/sidebar/sidebar.wxml-->
+ <view class="catalogBg {{flodFlag==true?'active':''}}">
+     <view class="author">
+         <text>{{author}}</text>
+     </view>
+     <view class="list">
+         <view class="listLi" wx:for="{{list}}" wx:key="key" >
+             <view class="liContent">
+                <view class="top">
+                    <view class="topLeft">{{item.chapters}}</view>
+                    <view class="topRight">{{item.title}}</view>
+                </view>
+                <view class="bottom">
+                    <view class="bottomTime">{{item.updateTime}}</view>
+                </view>
+             </view> 
+         </view>
+     </view>
+ </view>
