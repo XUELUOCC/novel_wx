@@ -5,6 +5,7 @@
     "pages/bookCase/bookCase",
     "pages/index/index",
     "pages/bookDetail/bookDetail",
+    "pages/chapterContent/chapterContent",
     "pages/logs/logs"
   ],
   "window": {

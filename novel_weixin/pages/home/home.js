@@ -10,6 +10,7 @@ Page({
     // loadingFlag:false,
     list:[
       {
+        id:'1',
         imgPath:'../../image/book1.jpg',
         book:'圣道',
         author:'龙神',
@@ -26,6 +27,7 @@ Page({
         }
       },
       {
+        id:'2',
         imgPath:'../../image/book1.jpg',
         book:'圣道',
         author:'龙神',
@@ -42,6 +44,7 @@ Page({
         }
       },
       {
+        id:'3',
         imgPath:'../../image/book1.jpg',
         book:'圣道',
         author:'龙神',
@@ -74,6 +77,13 @@ Page({
       }
     })
   },
+  read(e){
+    console.log(e)
+    let bookId=e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url:'/pages/chapterContent/chapterContent?bookId='+bookId
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -83,6 +93,16 @@ Page({
     // let app=getApp();
     // //注册组件
     // new app.tabBar;
+
+    //分享
+    if(options.url){
+      let url = decodeURIComponent(options.url);
+ 
+      wx.navigateTo({
+        url
+      })
+
+    }
   },
 
   /**

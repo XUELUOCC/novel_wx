@@ -7,7 +7,7 @@ Component({
     "flodFlag":{
       type:Boolean,
       value:''
-    }
+    },
   },
 
   /**
@@ -43,6 +43,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    
+    packBg(e){
+      this.setData({
+        flodFlag:false
+      })
+      this.setData({
+        bgFlag:false
+      })
+    },
   }
 })

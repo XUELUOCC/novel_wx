@@ -1,4 +1,5 @@
 <!--components/sidebar/sidebar.wxml-->
+ <view class="bgContent {{flodFlag?'bgActive':''}}" bindtap="packBg"></view>
  <view class="catalogBg {{flodFlag==true?'active':''}}">
      <view class="author">
          <text>{{author}}</text>

@@ -55,7 +55,7 @@
                 <image mode="heightFix" wx:else src="../../image/addBookCaseSelected.png"></image>
             </view>
             <view class="bookBottomRight">
-                <button >立即阅读</button>
+                <button data-id="{{item.id}}"  bindtap="read">立即阅读</button>
             </view>
         </view>
     </view>

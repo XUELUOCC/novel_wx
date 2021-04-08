@@ -34,6 +34,7 @@ page{
     width:100%;
     height:100%;
     position: relative;
+    overflow-x: hidden;
 }
 .top{
     width:100%;
@@ -148,9 +149,9 @@ page{
 
 /*小说目录 */
 .catalog{
-    width:100%;
+    width:90%;
     height:120rpx;
-    padding:0 37.5rpx;
+    /* padding:0 37.5rpx; */
     margin:0 auto;
     border-top:1rpx solid #e6ebf2;
     border-bottom:1rpx solid #e6ebf2;
@@ -304,7 +305,8 @@ page{
 /**小说内容 */
 .bookContent{
     width:100%;
-    height:auto;
+    /* height:4300rpx; */
+    overflow: hidden;
     /* border:1rpx solid red; */
     background-color: #f5f7fa;
     display: flex;
@@ -334,6 +336,9 @@ page{
     align-items: center;
     border-top:1rpx solid #e6ebf2;
 }
+.bookContentBottom{
+    margin-bottom:200rpx;
+}
 .bookContentBottom button{
     border:1rpx solid #409eff!important;
     border-radius: 50rpx;
@@ -353,3 +358,60 @@ page{
     z-index:-1;
 }
 
+/**底部分享栏 */
+.bottomBar{
+    position:fixed;
+    width:100%;
+    height:150rpx;
+    bottom:0;
+    background-color: #fff;
+    /* border:1rpx solid red; */
+}
+.bottomBarContent{
+    width:90%;
+    height:100%;
+    margin:0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.bottomBarLeft {
+    /* width:170rpx; */
+    height:100%;
+    position: relative;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bottomBarLeft button{
+    width:100%!important;
+    background-color:#fff!important;
+    border:0rpx!important;
+}
+.bottomBarLeft image{
+    position: absolute;
+    /* top:0; */
+    left:5rpx;
+    height:45rpx;
+    z-index:9999;
+}
+.bottomBarRight{
+    /* width:150rpx; */
+    height:100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bottomBarRight image{
+    height:45rpx;
+}
+.bottomBarCenter{
+    /* height:75rpx; */
+}
+.bottomBarCenter button{
+    border:0rpx!important;
+    width: 250rpx !important;
+    background-color:#409eff!important;
+    color:#fff!important;
+    border-radius: 50rpx;
+}

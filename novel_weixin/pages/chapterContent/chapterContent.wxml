@@ -1,0 +1,22 @@
+<!--pages/chapterContent/chapterContent.wxml-->
+<view class="content">
+    <sideBar flodFlag="{{flodFlag}}"></sideBar>
+    <view class="bookContent">
+        <view class="title">第二章</view>
+        <view class="chapterContent">
+            <text>
+                xxxxxxxxxxx
+                xxxxxxx
+                xxxxxxxxxx
+            </text>
+        </view>
+        <view class="contentBottom">
+            <button type="default"  plain="true" bindtap="readPrevious">上一章</button>
+            <button type="default"  plain="true" bindtap="readCatalog">目录</button>
+            <button type="default"  plain="true" bindtap="readNext">下一章</button>
+        </view>
+    </view>
+   
+    
+
+</view>

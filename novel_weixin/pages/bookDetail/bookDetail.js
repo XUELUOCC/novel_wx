@@ -9,6 +9,7 @@ Page({
     flodFlag:false,
     //书籍详情
     bookDetailData:{
+      id:'11',
       bookImg:'../../image/bookDetail/tip.png',
       bookName:'逐鹿双姝',
       author:'空山吟',
@@ -52,7 +53,9 @@ Page({
         content:'时代的挣扎与柔情，有柔情有热血，有所为有所不为，终究意难平。值得去体验更好的历史好文'
       },
     ],
+    //章节详情
     bookContent:{
+      id:"11-11",
       title:'第一章',
       chapterName:'楔子',
       content:''
@@ -62,24 +65,26 @@ Page({
   /**折叠侧边栏 */
   foldCatalog(e){
     this.setData({
-      flodFlag:!this.data.flodFlag
+      flodFlag:true
     })
     this.setData({
-      bgFlag:!this.data.bgFlag
-    })
-    wx.setNavigationBarTitle({
-      title:'赘婿'
+      bgFlag:true
     })
   },
-  packBg(e){
-    this.setData({
-      flodFlag:false
+  //阅读下一章
+  readChapter(e){
+    let bookId=this.data.bookDetailData.id;
+    let chapterId=this.data.bookContent.id;
+    wx.navigateTo({
+      url:'/pages/chapterContent/chapterContent?bookId='+bookId+'&&chapterId='+chapterId
     })
-    this.setData({
-      bgFlag:false
-    })
-    wx.setNavigationBarTitle({
-      title:''
+  },
+  //立即阅读
+  read(e){
+    let bookId=this.data.bookDetailData.id;
+    let chapterId=this.data.bookContent.id;
+    wx.navigateTo({
+      url:'/pages/chapterContent/chapterContent?bookId='+bookId+'&&chapterId='+chapterId
     })
   },
 
@@ -136,6 +141,13 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-   
+    let bookId=this.data.bookDetailData.id;
+    let chapterId=this.data.bookContent.id;
+    let url=encodeURIComponent('/pages/bookDetail/bookDetail?bookId='+bookId);
+
+    return {
+      title:'书籍详情',
+      path:`/pages/home/home?url=${url}`
+    }
   }
 })

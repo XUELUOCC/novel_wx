@@ -121,7 +121,7 @@
     text-align: center;
     line-height:90rpx;
     color:#ded0ba;
-    font-size:42rpx;
+    font-size:38rpx;
 }
 .bookBottom{
     width:95%;
@@ -158,6 +158,6 @@
     border-radius: 50rpx;
     background-color:#ff0000;
     color:#fff;
-    width:100%!important;
-    height:100%;
+    /* width:100%!important; */
+    /* height:100%; */
 }

@@ -476,6 +476,40 @@ wxml的标签
 						</wxs>
 					</view>
 
+16.微信分享功能
+	方式：
+		1.微信右上角分享
+		2.页面点击分享
+			步骤：
+				1.如果在页面中点击实现分享
+					--1.必须使用button按钮组件，同时button中的open-type="share"
+					--2.在页面js中增加方法onShareAppMessage（页面中一般存在此方法）
+					--3.在此方法中书写逻辑
+						 onShareAppMessage: function () {
+							let bookId=this.data.bookDetailData.id;
+							let chapterId=this.data.bookContent.id;
+							//将当前页面的路径包括参数使用encodeURIComponent进行编码并作为url的参数,path设置为
+								小程序的首页.
+							//当我们将该页面分享给其他人时,他们打开的首先是首页,然后跳转到我们分享的这个页面.
+							let url=encodeURIComponent('/pages/bookDetail/bookDetail?bookId='+bookId);
+							return {
+							title:'书籍详情',
+							path:`/pages/home/home?url=${url}`
+							}
+						}
+					--4.设置首页js逻辑，实现其他人点击分享跳转到相应的页面
+						--在页面加载时判断有没有url参数,如果有的话就使用decodeURIComponent对url解码然后跳转.
+							由于小程序是先进入了首页然后跳转到分享页,这样便解决了分享页没有返回键的问题.
+							onLoad: function (options) {
+								//分享
+								if(options.url){
+								let url = decodeURIComponent(options.url);
+								wx.navigateTo({
+									url
+								})
+
+								}
+							},
 -->
 </body>
 </html>

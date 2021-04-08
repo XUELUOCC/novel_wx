@@ -1,6 +1,5 @@
 
 <view class="content ">
-    <view class="bgContent {{bgFlag?'bgActive':''}}" bindtap="packBg"></view>
     <sideBar flodFlag="{{flodFlag}}"></sideBar>
     <view class="bgImg">
         <image class="background" mode="widthFix" src="{{bookDetailData.bookImg}}"></image>
@@ -140,9 +139,27 @@
                 安奇生不禁有些迷茫，他自小便与常人不同，时而能够梦到与一颗与玄星似是而非的星球之上，另一段奇妙的人生。
             </text>
             <view class="bookContentBottom">
-                <button type="default"  plain="true">阅读下一章</button>
+                <button type="default"  plain="true" bindtap="readChapter">阅读下一章</button>
             </view>
         </view>
+    </view>
+
+    <view class="bottomBar">
+        <view class="bottomBarContent">
+            <view class="bottomBarLeft">
+                <image mode="heightFix" src="../../image/bookDetail/bookShare.png"></image>
+                <!-- <view>分享</view> -->
+                 <button type="default" open-type="share"  plain="true" >分享</button>
+            </view>
+            <view class="bottomBarCenter">
+                <button type="default"  plain="true" bindtap="read">立即阅读</button>
+            </view>
+            <view class="bottomBarRight">
+                <image mode="heightFix" src="../../image/bookDetail/addBookcase.png"></image>
+                <view>加书架</view>
+            </view>
+        </view>
+        
     </view>
    
 </view>
