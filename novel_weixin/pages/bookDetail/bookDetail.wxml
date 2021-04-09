@@ -34,8 +34,9 @@
     </view>
     <view class="bottomContent">
         <view class="topIntroduct">
-            <view class='text'>
-               {{bookDetailData.bookIntroduct}}
+            <view class="text {{introductFlag ?'foldIntroduct':''}} ">
+                {{bookDetailData.bookIntroduct}}
+                <view class="fold" bindtap="fold" data-text="{{foldText}}" data-etc="{{textEtc}}"></view>
             </view>
         </view>
         <view class="catalog" bindtap="foldCatalog">

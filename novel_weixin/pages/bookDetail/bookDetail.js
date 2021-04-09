@@ -7,6 +7,9 @@ Page({
   data: {
     bgFlag:false,
     flodFlag:false,
+    introductFlag:false,
+    foldText:'展开',  //控制简介中展开和收起的出现与否
+    textEtc:"...", //控制简介中省略号的出现与否
     //书籍详情
     bookDetailData:{
       id:'11',
@@ -20,8 +23,8 @@ Page({
       bookGrade:'0',
       bookGradePeople:'0',
       bookIntroduct:'张晓，原来是一个初入社会的大学生，在去面试的路上过马路时被一辆闯红灯的轿车给撞死，'+
-      '灵魂穿越回了公元180年的幽州蓟县，成为了一个中等士族当代族长的长子，名叫张皓，字明德。'+
-      '为了在日后的乱世中生存下去，不断地发展自己的实力。“汉失其鹿，天下共逐”。',
+      '灵魂穿越回了公元180年的幽州蓟县，成为了一个中等士族当代族长的长子，名叫张皓，字明德。 为了在日后的乱世'+
+      '中生存下去，不断地发展自己的实力。 “汉失其鹿，天下共逐”。',
       bookUpdateTime:'2020-12-23 12:00',
       bookUpdateChapter:'第321章 封帝',
       bookRole:[
@@ -87,6 +90,16 @@ Page({
       url:'/pages/chapterContent/chapterContent?bookId='+bookId+'&&chapterId='+chapterId
     })
   },
+  //简介的展开
+  async fold(e){
+    await this.setData({
+      introductFlag:!this.data.introductFlag,
+    })
+    this.setData({
+      foldText:this.data.introductFlag==true? '收起':'展开',
+      textEtc:this.data.introductFlag==true? ' ':'...'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -99,7 +112,26 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    let that=this;
+    wx.createSelectorQuery().select('.text').boundingClientRect(function (rect) {
+      console.log(rect);
+      rect.id      // 节点的ID
+      rect.dataset // 节点的dataset
+      rect.left    // 节点的左边界坐标
+      rect.right   // 节点的右边界坐标
+      rect.top     // 节点的上边界坐标
+      rect.bottom  // 节点的下边界坐标
+      rect.width   // 节点的宽度
+      rect.height  // 节点的高度
+      console.log(rect.height)
+      console.log(that.data.flodFlag)
+      if(parseInt(rect.height)<93 ){
+        that.setData({
+          foldText:'',
+          textEtc:''
+        })
+      }
+    }).exec()
   },
 
   /**
