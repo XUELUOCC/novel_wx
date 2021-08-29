@@ -130,8 +130,14 @@ Page({
           foldText:'',
           textEtc:''
         })
+      }else{
+        that.setData({
+          foldText:'展开',
+          textEtc:'...'
+        })
       }
     }).exec()
+    // console.log(this.data.foldText,this.data.textEtc)
   },
 
   /**

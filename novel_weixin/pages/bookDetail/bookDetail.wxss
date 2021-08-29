@@ -147,6 +147,7 @@ page{
     -webkit-line-clamp: 3; 
     text-overflow:ellipsis;
     overflow: hidden;
+    word-spacing:normal;
 }
 .fold::before{
     content:attr(data-etc);
@@ -164,8 +165,8 @@ page{
     color:#409eff;
 }
 .fold{
-    width:105rpx;
-    height:35rpx;
+    width:109rpx;
+    height:50rpx;
     position: absolute;
     right:0;
     bottom:0;
